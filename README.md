@@ -2,7 +2,8 @@
 ssafy algorithm study
 
 ## Plan & Goal
-- Plan: 매주 2일~3일 오후 N시
+- Plan:
+- 
 - online or offline
 - Goal: 기초 알고리즘 공부 및 작성 + 백준 골드 달성
 
