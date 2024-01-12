@@ -1,0 +1,4 @@
+N = int(input())
+value = [int(i) for i in input().split()]
+value.sort()
+print(value[int((N-1)/2)])
