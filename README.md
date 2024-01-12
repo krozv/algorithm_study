@@ -2,9 +2,11 @@
 ssafy algorithm study
 
 ## Plan & Goal
-- Plan:
-- 
-- online or offline
+
+### Plan
+표 만들 예정
+
+### Online - 
 - Goal: 기초 알고리즘 공부 및 작성 + 백준 골드 달성
 
 ## Method
