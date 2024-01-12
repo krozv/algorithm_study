@@ -1,5 +1,6 @@
 # algorithm_study
 ssafy algorithm study
+누구나 변경 가능합니다! 변경 후 commit만 깔끔히 해주세요
 
 ## Plan & Goal
 
