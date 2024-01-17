@@ -1,11 +1,12 @@
+### swea 1959번 두 개의 숫자열
 ```python
 T=int(input())
-for test_case in range(1,T+1):
+for test_case in range(1,T+1): 
     N,M = map(int,input().split())
-    sum_array = []       #마주보는 숫자를 곱해서 더한 값을 저장하는 리스트
+    sum_array = [] #마주보는 숫자를 곱해서 더한 값을 저장하는 리스트
     N_array = list(map(int, input().split()))
     M_array = list(map(int, input().split()))
-    if N >= M:
+    if N >= M: #두 
         for i in range(N-M+1): 
             NM =[N_array[j+i]*M_array[j] for j in range(M)] #(N의 j+i번째)요소와 (M의 j번째)요소 곱한 값 리스트 ,리스트 길이는 M
             sum_array.append(sum(NM))  #NM리스트의 모든 요소 합들로 sum_array 리스트를 만듦
