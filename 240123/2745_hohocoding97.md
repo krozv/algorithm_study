@@ -1,3 +1,5 @@
+# 2745. 진법 변환
+```python
 b, n = input().split()
 b_list = list(b)
 alpha_list = [chr(a) for a in range(65,91)]
@@ -10,3 +12,4 @@ for i, v in enumerate(b_list):
     else: #숫자인 경우
         result += int(v) * (int(n)**i)
 print(result)
+```

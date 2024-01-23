@@ -1,3 +1,6 @@
+# 1193. 분수 찾기
+
+```python
 num = int(input())
 
 lay = 1 #층 수
@@ -14,3 +17,4 @@ else: #홀수층인 경우
     top_value, bottom_value = (1+remain, lay-remain)
 
 print(f'{top_value}/{bottom_value}')
+```
