@@ -1,3 +1,26 @@
+> try_1
+```py
+N = int(input())
+
+my_int = 2
+
+while N >= my_int:
+    if N % my_int == 0:
+        N = N // my_int
+        print(my_int)
+        continue
+    elif N == my_int:
+        print(N)
+    else :
+        my_int +=1
+        continue
+```
+
+<br><br>
+
+> try_2   
+
+```py
 def Factoriziation():
     N = int(input())
 
@@ -15,3 +38,4 @@ def Factoriziation():
             continue
     
 Factoriziation()
+```
