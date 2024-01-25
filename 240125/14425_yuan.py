@@ -1,15 +1,11 @@
+N, M = map(int,input().split())
 
-def 소인수분해(N):
-    for i in range(2, 10000000):
-        k,v = divmod(N,i)
-        if k>0 and v ==0:
-            print(i)
-            return 소인수분해(k)
+N_set = list(input().splitlines() for _ in range(N))
+M_list = list(input().splitlines() for _ in range(M))
 
+count = 0
+for i in M_list:
+    if i in N_set:
+        count +=1
 
-N=int(input())
-
-if N == 1:
-    print()
-else:
-    소인수분해(N)
+print(count)
