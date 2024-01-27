@@ -5,7 +5,7 @@ garo_list = [(list(input())) for _ in range(5)]
 garo_len_list = [len(garo_list[i]) for i in range(5)]
 
 # # 0번줄보다 길이가 짧은 행에 공백 채워넣기
-for i in range(1,3):
+for i in range(1,4):
     if garo_len_list[i] < garo_len_list[0]:
         for _ in range(garo_len_list[0] - garo_len_list[i]):
             garo_list[i].append('')
