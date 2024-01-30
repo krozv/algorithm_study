@@ -15,3 +15,5 @@
 ### Problem - 수업 복습(sort)
 
 1. [10989. 수 정렬하기 3](https://www.acmicpc.net/problem/10989)
+
+2. [1427. 소트인사이드](https://www.acmicpc.net/problem/1427)
