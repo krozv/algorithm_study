@@ -11,7 +11,7 @@
 문제 04. 가장 흔한 단어
 [819. Most Common Word](https://leetcode.com/problems/most-common-word/description/)
 
-### Problem - 필수 아님
+### Problem - 수업 복습(sort)
 
 1. [10989. 수 정렬하기 3](https://www.acmicpc.net/problem/10989)
 
