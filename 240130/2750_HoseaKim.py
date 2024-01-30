@@ -12,12 +12,12 @@ num_list = [int(input()) for _ in range(n)]
 # print(*num_list, sep='\n')
 
 # 2. 카운팅 정렬
-cnt = [0] * n
-for i in range(n):
-    cnt[num_list[i]-1] += 1
-for j in range(n-1):
-    cnt[j+1] += cnt(j)
-for k in range(n):
+# cnt = [0] * n
+# for i in range(n):
+#     cnt[num_list[i]-1] += 1
+# for j in range(n-1):
+#     cnt[j+1] += cnt(j)
+# for k in range(n):
 
-temp =
-print(cnt)
+# temp = 
+# print(cnt)
