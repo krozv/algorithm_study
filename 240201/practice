@@ -1,0 +1,17 @@
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        word_split = paragraph.split()
+        word_num = len(word_split)
+        word_dict = {}
+        for i in range(word_num):
+            word =''
+            for j in word_num[i]:
+                if j.isalpha and j != '':
+                    word += j
+            for b in range(banned):
+                if word != b:
+                    if word_dict.get(word) == None:
+                        word_dict[word] = 1
+                    else:
+                        word_dict[word] += 1
+        return max(word_dict, key = word_dict.get)
