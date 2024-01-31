@@ -15,7 +15,8 @@ for i in range(len(Num_count)):
         for _ in range(Num_count[i]):
             print(i)
 ```
-입력과 동시에 Num_count로 카운팅 해서 메모리 줄임
+입력과 동시에 Num_count로 카운팅해서 메모리 줄임
+
 ---
 ### 실패 코드 1 (bubble sort)
 
