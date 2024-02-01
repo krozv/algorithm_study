@@ -1,34 +1,55 @@
+# Reorder Log Files
+
 ```python
-class Solution:
-    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        # dictionary로 만들어서 숫자 세야징
-        word = ''
-        data = []
-        # 문자가 영어로 구성되어있을 경우, lower case로 변환 후 저장
-        for char in paragraph:
-            if char.isalpha():
-                char = char.lower()
-                word += char
+class ReorderLogFiles:
+    def reorderLogFiles(self, logs: [str]) -> [str]:
+        log_list = []
+        for log in logs:
+            identifier, *info = log.split(' ')
+            log = [identifier, info]
+            log_list.append(log)
+        let_list = []
+        dig_list = []
+
+        for log in log_list:
+            # log가 문자인지, 숫자인지 구별
+            if log[1][0].isalpha():
+                let_list.append(log)
             else:
-                if word != '':
-                    data.append(word)
-                word = ''
-        data.append(word)
-        # 단어의 출현 개수를 dictionary를 이용하여 count
-        word_dict = {}
-        for word in data:
-            if word in banned:
-                pass
-            elif word not in word_dict:
-                word_dict[word] = 1
-            else:
-                word_dict[word] += 1
-        # most common word 탐색
-        max_value = 0
-        most_common_word = ''
-        for key, value in word_dict.items():
-            if max_value < value:
-                max_value = value
-                most_common_word = key
-        return most_common_word
+                dig_list.append(log)
+        # 문자로 만 이루어진 log를 정렬
+        let_list.sort(key=lambda x: (x[1], x[0]))
+
+        let_list.extend(dig_list)
+        output_list = []
+        for log in let_list:
+            output = log[0] + ' ' + ' '.join(log[1])
+            output_list.append(output)
+        return output_list
+
+
+
+c = ReorderLogFiles()
+logs = ["dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero"]
+c.reorderLogFiles(logs)
+```
+
+`sort(*, key=None, reverse=False)`
+
+- key specifies a function of one argument that is used to extract a comparison key from each list element. The key corresponding to each item in the list is calculated once and then used for the entire sorting process. The default value of `None` means that list items are sorted directly without calculating a separate key value.
+
+```python
+# method 'sort' test
+a = ['aC', 'bB', 'cA']
+
+a.sort(key=lambda x: x[0])
+print(a) # ['aC', 'bB', 'cA']
+
+a.sort(key=lambda x: x[1])
+print(a) # ['cA', 'bB', 'aC']
+
+# key test
+b = ['aC', 'aB', 'aA']
+b.sort(key=lambda x: (x[0], x[1]))
+print(b) # ['aA', 'aB', 'aC']
 ```
