@@ -40,11 +40,6 @@ if N >1: # 개수가 1개 이상일 때
 else: # 개수가 1개일 때
     print(sorted_list[0])
 
-
-
-
-
-
 # 4. 범위
 max_number = max(number_list)
 min_number = min(number_list)
