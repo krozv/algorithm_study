@@ -113,24 +113,76 @@ for num in num_list:
 max_num = sorted_num_list[-1]   # 최댓값
 min_num = sorted_num_list[0]    # 최솟값
 
-print(round(total/N))           # 산술평균
+print('{:.0f}'.format(total/N)) # 산술평균
 print(sorted_num_list[N//2])    # 중앙값
 print(frq_num)                  # 최빈값
 print(max_num - min_num)        # 범위
 ```
 
-산술평균 시 음수 반올림이 문제인 것으로 사료됨
+산술평균 시 음수 반올림이 문제인 것으로 사료됨 -> 이 문제 아님 XXX
+
+### `format()`
+
+해당 메소드를 사용하여 음수를 반올림 할 경우 -0으로 출력됨 -> 에러의 원인
 
 ### python `round()` floating point error
 
-python에서 `rount()`를 사용할 때 고질적인 문제임
+python에서 `round()`를 사용할 때 고질적인 문제임. 일반적으로 우리가 아는 반올림은 '사사오입'을 이용하는 데에 반해, 해당 method는 '오사오입'을 사용함
 
-일반적으로 우리가 아는 반올림은 '사사오입'을 이용하는 데에 반해,
-
-해당 method는 '오사오입'을 사용함
-
-```python
-반올림 예제 적기
-```
+-> 해당 문제는 N이 짝수일때 발생함. 이 조건에서는 N이 홀수이므로 반올림과 상관없음
 
 ### Answer
+
+문제 원인 파악
+
+count의 누적합을 구하면서 최빈값을 계산하는 과정에서 오류 발생
+
+count의 누적합은 `count[i] += count[i-1]`를 하면서 진행되므로 `range(1, 8000)`의 범위 내에서 진행됨
+이때, index가 0일 때 최빈값이 위치하였으면, 해당 값을 인식하지 못한 채로 진행됨.
+i가 양수일 때 누적합을 시작하는 조건을 추가하고, `range(8000)`으로 변경하여 최빈값을 탐색함
+
+
+```python
+# 2108 통계학
+import sys
+input = sys.stdin.readline
+N = int(input())
+num_list = [int(input()) for _ in range(N)]
+# counting sort
+# counting sort를 위해 num_list 내 숫자와 동일한 인덱스의 값을 1씩 증가
+count = [0] * 8001
+total = 0   # 총합을 구하기 위한 변수 total
+max_cnt = 0
+for i in range(N):
+    count[num_list[i]+4000] += 1
+    total += num_list[i]
+    if max_cnt < count[num_list[i]+4000]:
+        max_cnt = count[num_list[i]+4000]
+
+frq = 0
+frq_num = 0
+
+# count의 누적합을 구함
+for i in range(8001):
+    if count[i] == max_cnt and frq < 2:
+        frq_num = i-4000
+        frq += 1
+    # i가 양수일 때 누적합을 시작하는 조건을 추가하여 문제 해결
+    if i > 0:
+        count[i] += count[i-1]
+
+# 누적합을 기준으로 정렬
+sorted_num_list = [0] * N
+for num in num_list:
+    if count[num+4000] != 0:
+        sorted_num_list[count[num+4000]-1] = num
+        count[num+4000] -= 1
+
+max_num = sorted_num_list[-1]   # 최댓값
+min_num = sorted_num_list[0]    # 최솟값
+
+print(round(total/N))           # 산술평균
+print(sorted_num_list[N//2])    # 중앙값
+print(frq_num)                  # 최빈값
+print(max_num - min_num)        # 범위
+```
