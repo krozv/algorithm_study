@@ -11,6 +11,8 @@ class Solution:
                     return [i,j]
 ```
 버블정렬 쓰는 것처럼 했음
+시간복잡도 O(n^2)
+
 
 ### LeetCode Solution1 (One-pass Hash Table)
 51ms
