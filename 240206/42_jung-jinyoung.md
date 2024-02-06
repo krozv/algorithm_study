@@ -1,4 +1,7 @@
 ### try 1 (길어도 읽어줘잉..)
+
+![try1](images/image/42_1.png)
+![try_1_2](images/image/42_2.png)
 > 목표 : 요철 모양을 찾아서 면적을 계산한 후, 범위 안에 있는 높이들의 합을 뺀값 = 더해 줄 물의 양
 
 ```py
@@ -59,6 +62,16 @@ case 2 오답
 위치를 계속 이동한다.   
 -> 높은 위치가 있을경우 멈춘다. (다음 위치 : 높은 위치 이후 )
 -> 물의 양을 계속 더한다.
+
+![try_2_1](images/image/42_3.png)
+![try_2_2](images/image/42_4.png)
+![try_2_3](images/image/42_5.png)
+![try_2_4](images/image/42_6.png)
+![try_2_5](images/image/42_7.png)
+![try_2_6](images/image/42_8.png)
+
+
+
 
 > 이동할 경우를 구현하는게 어려웠다.
 > try 1과 함께 생각해서 현재의 위치를 봤을 때의 물의 양을 구할 수 있음을 알았다.
