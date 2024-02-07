@@ -1,6 +1,9 @@
 # 11478. 서로 다른 부분 문자열의 개수
 
 ### 첫 풀이
+`append()`가 시간 많이 걸린다고 하여 미리 list를 일정개수 만들고 시작
+
+python3-1376ms, pypy3-892ms
 ```python
 S = input()
 N = len(S)
@@ -15,7 +18,7 @@ print(len(set(subset))-1)       #집합으로 변경해 겹치는 걸 제거후 
 
 
 ### 마지막에 -1 안하고 풀려면
-
+pypy3-688ms
 ```python
 S = input()
 N = len(S)
