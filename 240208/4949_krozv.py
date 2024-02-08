@@ -3,7 +3,7 @@
 """
 stack으로 풀 것임
 괄호는 [] () 두 종류
-균형잡힌 문자열인지 판단
+균형잡힌 문자열인지 판단하기
 """
 import sys
 # sys.stdin = open('test.txt','r')
