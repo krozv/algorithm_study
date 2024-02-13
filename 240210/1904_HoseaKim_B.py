@@ -20,6 +20,11 @@ def tile(n):
         ans = temp
         cnt += 1
     
+    cnt = 0
+    ans = 1
+    while cnt < n:
+
+
     return ans
 
 
