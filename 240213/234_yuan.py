@@ -6,11 +6,13 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         lst = []
+        # node 다 꺼내기
         while head.next != None:
             lst.append(head.val)
             head = head.next
         lst.append(head.val)
 
+        # left와 right 포인터 지정
         N = len(lst)
         left = 0
         right = N - 1
