@@ -34,56 +34,38 @@ seq = [int(input()) for _ in range(n)]   # 수열 sequence
 num_list = list(range(n, 0, -1))
 
 stack = []
-top = -1
-output = ''
+output = []
 new_seq = []
-idx = 0
-while seq != new_seq:   ### 여기 줄이 문제 ### 조건 다시 세울 것 ###
-    if not num_list:
-        output = 'No'
-        break
-    if top == -1:
+while seq:
+    if not stack:
+        if not num_list:
+            output = None
+            break
         num = num_list.pop()
         stack.append(num)
-        top += 1
-        output += '+'
+        output.append('+')
+    # stack에 요소 존재
     else:
-        if seq[idx] in stack:
-            while stack[top] != seq[idx]:
+        if seq[0] in stack:
+            while stack[-1] != seq[0]:
                 elem = stack.pop()
-                top -= 1
-                output += '-'
-            # stack[top] == seq[idx] 이므로
-            elem = stack.pop()
-            top -= 1
-            output += '-'
-            new_seq.append(elem)
-            idx += 1
-
-        elif seq[idx] in num_list:
-            while stack[top] != seq[idx]:
+                output.append('-')
+            stack.pop()
+            output.append('-')
+            seq.pop(0)
+        elif seq[0] in num_list:
+            while stack[-1] != seq[0]:
                 num = num_list.pop()
                 stack.append(num)
-                top += 1
-                output += '+'
-            # stack[top] == seq[idx] 이므로
-            elem = stack.pop()
-            top -= 1
-            output += '-'
-            new_seq.append(elem)
-            idx += 1
+                output.append('+')
+            stack.pop()
+            output.append('-')
+            seq.pop(0)
         else:
-            output = 'No'
+            output = None
             break
-print(output)
-"""
-8
-4
-3
-6
-8
-7
-5
-2
-1
-"""
+if output:
+    for elem in output:
+        print(elem)
+else:
+    print('NO')
