@@ -10,9 +10,9 @@
 
 [SWEA 문제집](https://swexpertacademy.com/main/talk/solvingClub/problemBoxDetail.do?solveclubId=AY2i7WQ6i8EDFAXh&probBoxId=AY2w-kia_lkDFAXh&leftPage=1)
 
-7465. 창용 마을 무리의 개수
+    7465. 창용 마을 무리의 개수
 
-2112. 보호 필름
+    2112. 보호 필름
 
 ### Problem - 큐 Queue
 
