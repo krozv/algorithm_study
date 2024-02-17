@@ -21,7 +21,7 @@ lst = deque(lst)
 
 while True:
     lst.popleft()
-    if len(lst) == 1:
+    if len(lst) == 1: # n =1인경우에 0되면서 문제. while True 가아닌 while len(q) 로 해줘야햠.
         break
     t = lst.popleft()
     lst.append(t)

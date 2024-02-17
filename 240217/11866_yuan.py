@@ -21,3 +21,16 @@ print('<', end = '')
 print(*num, sep=", ", end= '')
 print('>')
 
+# 호준
+N , k = 7, 3
+q = [range(1,N+1)]
+idx= 0
+whlie q:
+    idx = (idx+1)% k # 원형큐의 인덱스, k씩 건너뛰기
+    num = q. popleft()
+    if idx == 0: # 1dx 가 k번쨰인지
+        print(num)
+    else:
+        q.append(num)
+
+
