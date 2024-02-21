@@ -12,6 +12,8 @@ class Solution:
         new_node = new_single_list
 
         while True:
+            if not(new_node):
+                break
             if node1.val < node2.val:
                 new_node.next = node1
                 node1 = node1.next
@@ -19,10 +21,9 @@ class Solution:
                 new_node.next = node2
                 node2 = node2.next
             new_node = new_node.next
-            if not(node1 or node2):
-                break
+            
         
-        return new_single_list.next
+        return new_node.val
 
 list1 = ListNode(1, ListNode(2, ListNode(4, None)))
 list2 = ListNode(1, ListNode(3, ListNode(4, None)))
