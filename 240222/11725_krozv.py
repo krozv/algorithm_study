@@ -14,13 +14,14 @@ def find_parent(p):
     if adj[p]:
         for c in adj[p]:
             par[c] = p  # 자식을 인덱스로 부모를 저장함
-            adj[c].pop(adj[c].index(p))
+            adj[c].remove(p)
             p = c
             find_parent(p)
             p = parent
 
 
 import sys
+sys.setrecursionlimit(10**9)
 input = sys.stdin.readline
 N = int(input())
 par = [0] * (N+1)
