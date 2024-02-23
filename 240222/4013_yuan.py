@@ -1,63 +1,44 @@
 
-def check(q1,q2,q3,q4):
-    ch = [0,0,0,0]
-    if q1[2] == q2[6]:
-        ch[0] = 1
-    if q2[2] == q3[6]:
-        ch[1] = 1
-    if q3[2] == q4[6]:
-        ch[2] = 1
+def dfs(num, dir): # num = 0,1,2,3
 
-    return ch
+    global visit
+    visit[num] = 1 # 중복 방지 위한 방문표시
+    # num = 1, 2, 3, 4 , dir 은 1, -1
+    # num 이 4보다 작을때 num[2] = num[6]
+    if num < 3: # 현재값과 다음 자석 값 비교해서 다음 자석 돌리기, 다음에 방문하려는 좌표 방문여부 확인
+        if magnet[num][2] != magnet[num+1][6] and not visit[num+1]:
+            dfs(num+1, -dir) # 4->3 or 3->2 등등 방향이 바뀌니까 -dir
 
+    if num > 0: #현재값과 이전자석 비교해서 이전 자석 돌리기
+        if magnet[num][6] != magnet[num-1][2] and not visit[num-1]:
+            dfs(num-1, -dir)
 
-def rot(n,d):
-    if n == 0:
-        if dir == 1:
-            t1= q1.popleft()
-            q1= t1+ q1
+    if dir == 1:
+        # 마그넷은 인덱스 0-3으로 저장해놓음 / 시계방향 이동d은 뒤에꺼 앞에 붙이기
+        magnet[num] = [magnet[num].pop()] + magnet[num]
 
-            t2 = q2.pop()
-            q2 =
-
-        elif dir == -1:
-
-    if n == 1:
-        if dir == 1:
-
-        elif dir == -1:
-
-    if n == 2:
-        if dir == 1:
-
-        elif dir == -1:
-
-    if n == 3:
-        if dir == 1:
-
-        elif dir == -1:
+    else:
+         # 반시계는 앞에꺼 뒤에 붙이기
+        magnet[num] = magnet[num][1:] + [magnet[num][0]]
 
 
 
 T = int(input())
-rot_k = int(input()) # 회전횟수
-q1 = [list(map(int,input().split())) for _ in range(8)]
-q2 = [list(map(int,input().split())) for _ in range(8)]
-q3 = [list(map(int,input().split())) for _ in range(8)]
-q4 = [list(map(int,input().split())) for _ in range(8)]
+for tc in range(1,T+1):
+    numk = int(input())
+    magnet = [list(map(int,input().split())) for _ in range(4)]
 
 
-rot_lst = [list(input().split()) for _ in range((rot_k))]
+    for _ in range(numk):
+        x, y = map(int,input().split()) # 한번 input 받을떄마다 즉시 회전하기
+        visit = [0, 0, 0, 0] # visit 위치 주의, 한번 돌릴떄마다 업데이트
+        dfs(x-1,y) # 자석 번호, 방향
 
-while rot_lst:
-    wheel, dir = rot_lst. popleft()
-    ch = check(q1,q2,q3,q4) # ch = [0,1,0,1]
-    fal_num = ch.index(0)
-    q1,q2,q3,q4 = rot(fal_num,dir)
+    sum = 0
 
-sum = 0
-if q1[0]: sum +=1
-if q2[0]: sum +=2
-if q3[0]: sum +=4
-if q4[0]: sum +=8
-print(sum)
+    for i in range(4):
+        if magnet[i][0]:
+            sum += 2 ** i
+
+
+    print(f'#{tc} {sum}')
