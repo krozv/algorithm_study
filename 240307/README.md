@@ -18,7 +18,6 @@
 
 [SWEA](https://swexpertacademy.com/main/talk/solvingClub/problemBoxDetail.do?solveclubId=AY2i7WQ6i8EDFAXh&probBoxId=AY4IOgRKrsgDFAUZ&leftPage=1)
 
-- 1234. 비밀번호
+1234.비밀번호
 
-- 1230. 암호문3
-- 
+1230.암호문3
